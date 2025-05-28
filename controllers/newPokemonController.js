@@ -5,7 +5,6 @@ const alphaErr = "must only contain letters.";
 const types = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", 
     "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"];
 
-const regions = ["kanto", "jhoto", "hoenn", "sinnoh", "unova", "kalos", "alola", "galar", "paldea"]
 
 const validatePokemon = [
   body("pokemon").trim()

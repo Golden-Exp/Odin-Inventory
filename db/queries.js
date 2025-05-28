@@ -9,4 +9,17 @@ async function getAllPokemon(){
     return rows;
 }
 
-module.exports = {insertPokemon, getAllPokemon};
+async function getPokemon(id){
+    const {rows} = await pool.query("SELECT * FROM pokemons where id=$1", [id]);
+    return rows;
+}
+
+async function deletePokemon(id){
+    await pool.query("DELETE FROM pokemons where id=( $1 )", [id]);
+}
+
+async function editPokemon(id, pokemon, type, type2, region, trainer){
+    await pool.query("UPDATE pokemons SET pokemon=$1, type=$2, type2=$3, region=$4, trainer=$5 WHERE id=$6", [pokemon, type, type2, region, trainer, id])
+}
+
+module.exports = {insertPokemon, getAllPokemon, getPokemon, deletePokemon, editPokemon};
