@@ -1,0 +1,64 @@
+<% if (locals.errors) { %>
+  <div class="error-popup">
+    <ul>
+      <% errors.forEach(function(error) { %>
+        <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  </div>
+<% } %>
+
+<script>
+  const popup = document.querySelector('.error-popup');
+  if (popup) {
+    setTimeout(() => {
+      popup.style.transition = 'opacity 0.5s ease-out';
+      popup.style.opacity = '0';
+      setTimeout(() => popup.remove(), 500); // remove from DOM after fade-out
+    }, 4000); // visible for 4 seconds
+  }
+</script>
+
+
+<style>
+    .error-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff6b81;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    z-index: 1000;
+    animation: fadeInDown 0.3s ease-out;
+    font-weight: 500;
+    }
+
+    .error-popup ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+
+    .error-popup li {
+    margin-bottom: 6px;
+    }
+
+    .error-popup li:last-child {
+    margin-bottom: 0;
+    }
+
+    @keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    }
+
+</style>

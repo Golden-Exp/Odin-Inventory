@@ -1,20 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Pokémon</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fb;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #2f3542;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #57606f;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #dcdde1;
+      border-radius: 6px;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #1e90ff;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff4757;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #e84118;
+    }
+  </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Add Pokemon</h1>
-        <form method="POST" action="/new">
-            <div class="form-group">
-                <label for="pokemon">Pokemon Name:</label>
-                <input type="text" id="pokemon" name="pokemon" required>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+  <%- include("partials/errors.ejs") %>
+  <div class="form-container">
+    <h1>Add Pokémon</h1>
+    <form method="POST" action="/new">
+      <div class="form-group">
+        <label for="pokemon">Pokémon Name:</label>
+        <input type="text" id="pokemon" name="pokemon" required />
+      </div>
+      <div class="form-group">
+        <label for="type">Primary Type:</label>
+        <input type="text" id="type" name="type" required />
+      </div>
+      <div class="form-group">
+        <label for="type2">Secondary Type:</label>
+        <input type="text" id="type2" name="type2" />
+      </div>
+      <div class="form-group">
+        <label for="region">Region:</label>
+        <input type="text" id="region" name="region" required />
+      </div>
+      <div class="form-group">
+        <label for="trainer">Trainer Name:</label>
+        <input type="text" id="trainer" name="trainer" required />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </body>
 </html>
